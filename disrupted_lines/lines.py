@@ -1,8 +1,9 @@
 from tkinter import *
 import random
+import time
 
 tk = Tk()
-canvas = Canvas(tk, width=3000, height=3000, bg = 'light grey')
+canvas = Canvas(tk, width=3000, height=3000, bg = 'black')
 canvas.pack()
 
 x = 10
@@ -16,6 +17,9 @@ def first_line(coordinates,colour):
         xf = xi + 2
         yf = yi + random.uniform(-1, 1)
         canvas.create_line(xi, yi, xf, yf, fill=colour)
+        tk.update_idletasks()
+        tk.update()
+        time.sleep(0.01)
         coordinates.append((xf, yf))
         xi = xf
         yi = yf
@@ -34,10 +38,13 @@ def repeat_lines(coordinates, colour):
             xf = xi + 2
             yf = yi + random.uniform(-1 - chaos, chaos)
             canvas.create_line(xi, yi, xf, yf, fill=colour)
+            tk.update_idletasks()
+            tk.update()
+            time.sleep(0.001)
             new_coordinates.append((xf, yf))
         coordinates = new_coordinates
 
-repeat_lines(coordinates, 'black')
+repeat_lines(coordinates, 'white')
 coordinates = [(x, y)]
 repeat_lines(coordinates, 'grey')
 
