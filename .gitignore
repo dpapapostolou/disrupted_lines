@@ -1,0 +1,10 @@
+# Ignore all image files
+
+*.png
+*.jpg
+*.tiff
+
+# Ignore others
+*.java
+*.xml
+.iml
